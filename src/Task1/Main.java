@@ -3,46 +3,25 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
+        Calculator calculator = new Calculator();
 
-        boolean stop = false;
+        System.out.println("Enter the first number:");
+        double num1 = scanner.nextDouble();
 
-        System.out.print("Enter: ");
-        double result = scan.nextDouble();
+        System.out.println("Enter the operation (+, -, *, /):");
+        String operator = scanner.next();
 
-        while (!stop) {
+        System.out.println("Enter the second number:");
+        double num2 = scanner.nextDouble();
 
-            String operation = scan.next();
-            double num2;
-            switch (operation) {
-                case "+":
-                    num2 = scan.nextDouble();
-                    result += num2;
-                    continue;
-                case "-":
-                    num2 = scan.nextDouble();
-                    result -= num2;
-                    continue;
-                case "/":
-                    num2 = scan.nextDouble();
-                    result /= num2;
-                    continue;
-                case "*":
-                    num2 = scan.nextDouble();
-                    result *= num2;
-                    continue;
-                case "=":
-                    System.out.print("Result: " + result);
-                    break;
-                case "del":
-                    result = 0;
-                    System.out.print("Result was cleaned");
-                    break;
-                default:
-                    System.out.println("Invalid operation: " + operation);
-                    break;
-            }
+        try {
+            double result = calculator.calculate(operator, num1, num2);
+            System.out.println("Result: " + result);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        } catch (ArithmeticException e) {
+            System.out.println("Error: " + e.getMessage());
         }
     }
-
 }

@@ -36,7 +36,6 @@ public class Main {
         for (String word : wordsArray) {
             System.out.println(word);
         }
-        System.out.println("Number of swaps: " + counter);
     }
 
     private static int countUpperCaseLetters(String word) {

@@ -24,7 +24,7 @@ public class Main {
         int colsMatrix2 = matrix2[0].length;
 
         if (colsMatrix1 != matrix2.length) {
-            throw new IllegalArgumentException("Кількість стовпців першої матриці повинна дорівнювати кількості рядків другої матриці.");
+            throw new IllegalArgumentException("The number of columns of the first matrix must be equal to the number of rows of the second matrix");
         }
 
         int[][] result = new int[rowsMatrix1][colsMatrix2];
